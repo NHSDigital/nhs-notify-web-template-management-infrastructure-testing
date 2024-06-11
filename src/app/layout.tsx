@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './app.scss';
-import { NHSNotifyHeader } from '../molecules/header/header';
-import { NHSNotifyContainer } from './container/container';
-import { NHSNotifyFooter } from '../molecules/footer/footer';
+import { NHSNotifyHeader } from './components/molecules/header/header';
+import { NHSNotifyContainer } from './components/layouts/container/container';
+import { NHSNotifyFooter } from './components/molecules/footer/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
