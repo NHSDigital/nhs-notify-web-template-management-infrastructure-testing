@@ -1,16 +1,12 @@
 resource "aws_amplify_app" "amplify_app" {
   name                   = "${var.project}-${var.environment}"
-  repository             = aws_ssm_parameter.amplify_repository_url.value
-  access_token           = aws_ssm_parameter.amplify_repository_access_token.value
+  repository             = var.repository
+  access_token           = var.access_token
   enable_basic_auth      = true
   platform               = "WEB_COMPUTE"
   basic_auth_credentials = base64encode("${aws_ssm_parameter.amplify_repository_username.value}:${aws_ssm_parameter.amplify_repository_password.value}")
 
-  auto_branch_creation_config {
-    enable_auto_build = true
-  }
-
-  enable_auto_branch_creation = true
+  enable_auto_branch_creation = false
 
   enable_branch_auto_deletion = true
 

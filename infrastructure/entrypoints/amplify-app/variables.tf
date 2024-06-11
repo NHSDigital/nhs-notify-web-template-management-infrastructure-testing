@@ -11,3 +11,12 @@ variable "component" {
 variable "environment" {
   type = string
 }
+
+variable "repository" {
+  type        = string
+  default     = "https://github.com/NHSDigital/template-ui-poc"
+}
+
+variable "access_token" {
+  type        = string
+}

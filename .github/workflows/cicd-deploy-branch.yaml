@@ -63,4 +63,6 @@ jobs:
         uses: actions/checkout@v4
       - name: "Deploy branch"
         run: |
-          terraform_dir="./infrastructure/entrypoints/amplify-branch" terraform_opts="-var \"environment=${{ github.event.inputs.environment }}\" -var \"branch=${GITHUB_REF}\"" make terraform-apply
+          export TF_VAR_environment={{ github.event.inputs.environment }}
+          export TF_VAR_branch=${GITHUB_REF}
+          terraform -chdir="./infrastructure/entrypoints/amplify-branch" apply -auto-approve
