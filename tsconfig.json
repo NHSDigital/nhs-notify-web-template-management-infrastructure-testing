@@ -31,7 +31,6 @@
     "scripts/is-deployed.js"
   ],
   "exclude": [
-    "node_modules",
     // This is to prevent cypress Chai.expect over writing Jest.expect typings.
     // other exclusions that may help https://github.com/cypress-io/cypress/issues/22059#issuecomment-1428298264
     "./cypress.config.ts",

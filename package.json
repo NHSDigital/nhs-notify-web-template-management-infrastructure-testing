@@ -23,28 +23,19 @@
     "app:stop": "pm2 kill"
   },
   "dependencies": {
-    "@aws-amplify/adapter-nextjs": "^1.2.4",
-    "@aws-amplify/ui-react": "^6.1.12",
-    "aws-amplify": "^6.3.6",
-    "jose": "^5.4.0",
     "next": "14.2.3",
     "nhsuk-frontend": "^8.1.1",
     "nhsuk-react-components": "^4.0.2",
     "react": "^18",
-    "react-dom": "^18",
-    "zod": "^3.23.8"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "@aws-amplify/backend": "^1.0.3",
-    "@aws-amplify/backend-cli": "^1.0.4",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^16.0.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "aws-cdk": "^2.145.0",
-    "aws-cdk-lib": "^2.145.0",
     "constructs": "^10.3.0",
     "cypress": "^13.11.0",
     "esbuild": "^0.21.5",
