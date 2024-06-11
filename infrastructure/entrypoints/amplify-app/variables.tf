@@ -1,13 +1,13 @@
 variable "project" {
-    type    = string
-    default = "template-management"
+  type    = string
+  default = "template-management"
 }
 
 variable "component" {
-    type = string
-    default = "amplify-app"
+  type    = string
+  default = "amplify-app"
 }
 
 variable "environment" {
-    type    = string
+  type = string
 }

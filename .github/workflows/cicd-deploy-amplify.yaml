@@ -11,6 +11,10 @@ on:
         description: "This is the tag that is going to be deployed"
         required: true
         default: "latest"
+# Revert before merge, just adding this because workflow_dispatch does not work unless the workflow is in the main branch
+  push:
+    branches:
+      - feature/**
 
 jobs:
   metadata:

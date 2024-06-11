@@ -1,5 +1,5 @@
 data "aws_ssm_parameter" "amplify_app_id" {
-    name  = "/template-management/amplify-app/${var.environment}/amplify-app-id"
+  name = "/template-management/amplify-app/${var.environment}/amplify-app-id"
 }
 
 resource "aws_amplify_branch" "amplify_branch_main" {
