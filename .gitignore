@@ -50,3 +50,8 @@ reports
 
 # cypress
 tests/screenshots/*
+plugin-cache/
+
+*.terraform*
+terraform.tfstate
+terraform.tfstate.backup

@@ -1,5 +1,5 @@
 data "aws_ssm_parameter" "amplify_app_id" {
-  name = "/template-management/amplify-app/${var.environment}/amplify-app-id"
+  name = "/template-mgmt/amplify-app/${var.environment}/amplify-app-id"
 }
 
 resource "aws_amplify_branch" "amplify_branch_main" {
@@ -16,6 +16,6 @@ resource "aws_amplify_domain_association" "domain_association" {
 
   sub_domain {
     branch_name = aws_amplify_branch.amplify_branch_main.branch_name
-    prefix      = aws_amplify_branch.amplify_branch_main.branch_name
+    prefix      = "nhs-notify"
   }
 }
