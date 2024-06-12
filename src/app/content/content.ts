@@ -7,7 +7,7 @@ const headerComponent = {
 };
 
 const homePage = {
-  title: 'Notify - Web template management',
+  title: 'NHS Notify - Template Management',
   description: 'Template management',
 };
 

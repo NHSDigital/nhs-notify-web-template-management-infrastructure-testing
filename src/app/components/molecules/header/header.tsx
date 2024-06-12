@@ -2,9 +2,9 @@ import styles from './header.module.scss';
 import concatClassNames from '@/src/app/utils/concatClassNames';
 import content from '@/src/app/content/content';
 
-export async function NHSNotifyHeader() {
+export function NHSNotifyHeader() {
   return (
-    <header className='nhsuk-header' role='banner'>
+    <header className='nhsuk-header' role='banner' data-testid='page-header'>
       <div className='nhsuk-header__container'>
         <div className='nhsuk-header__logo'>
           <a className='nhsuk-header__link' href='/' aria-label='NHS homepage'>
@@ -14,6 +14,7 @@ export async function NHSNotifyHeader() {
               viewBox='0 0 40 16'
               height='40'
               width='100'
+              data-testid='page-header-logo'
             >
               <path
                 className='nhsuk-logo__background'
@@ -35,7 +36,8 @@ export async function NHSNotifyHeader() {
           )}
           id='content-header'
         >
-          <div className='nhsuk-account__login'>
+          {/* I am cunrretly testing the link wrapper, this will change later when we implement auth as the link will change based on auth state */}
+          <div className='nhsuk-account__login' data-testid='login-link'>
             <a className='nhsuk-account__login--link' href='/'>
               {content.components.headerComponent.links.logIn}
             </a>
