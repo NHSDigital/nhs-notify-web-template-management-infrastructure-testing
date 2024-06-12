@@ -1,8 +1,12 @@
-export async function NHSNotifyHeader({ title = '' }: { title?: string }) {
+import styles from './header.module.scss';
+import concatClassNames from '@/src/app/utils/concatClassNames';
+import content from '@/src/app/content/content';
+
+export function NHSNotifyHeader() {
   return (
-    <header className='nhsuk-header nhsuk-header__transactional' role='banner'>
+    <header className='nhsuk-header' role='banner' data-testid='page-header'>
       <div className='nhsuk-header__container'>
-        <div className='nhsuk-header__logo nhsuk-header__transactional--logo'>
+        <div className='nhsuk-header__logo'>
           <a className='nhsuk-header__link' href='/' aria-label='NHS homepage'>
             <svg
               className='nhsuk-logo'
@@ -10,6 +14,7 @@ export async function NHSNotifyHeader({ title = '' }: { title?: string }) {
               viewBox='0 0 40 16'
               height='40'
               width='100'
+              data-testid='page-header-logo'
             >
               <path
                 className='nhsuk-logo__background'
@@ -24,13 +29,19 @@ export async function NHSNotifyHeader({ title = '' }: { title?: string }) {
             </svg>
           </a>
         </div>
-        <div className='nhsuk-header__transactional-service-name'>
-          <a
-            className='nhsuk-header__transactional-service-name--link'
-            href='/'
-          >
-            {title}
-          </a>
+        <div
+          className={concatClassNames(
+            'nhsuk-header__content',
+            styles.header__content
+          )}
+          id='content-header'
+        >
+          {/* I am cunrretly testing the link wrapper, this will change later when we implement auth as the link will change based on auth state */}
+          <div className='nhsuk-account__login' data-testid='login-link'>
+            <a className='nhsuk-account__login--link' href='/'>
+              {content.components.headerComponent.links.logIn}
+            </a>
+          </div>
         </div>
       </div>
     </header>

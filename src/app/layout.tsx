@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './app.scss';
-import { NHSNotifyHeader } from './components/molecules/header/header';
+import { NHSNotifyHeader } from './components/molecules/Header/Header';
 import { NHSNotifyContainer } from './components/layouts/container/container';
 import { NHSNotifyFooter } from './components/molecules/footer/footer';
+import content from '@/src/app/content/content';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Notify - Web template management',
-  description: 'Template management',
+  title: content.pages.homePage.title,
+  description: content.pages.homePage.description,
 };
 
 export default function RootLayout({
@@ -68,9 +69,9 @@ export default function RootLayout({
           src='lib/nhs-frontend-js-check.js'
           defer
         />
-        <NHSNotifyHeader title={metadata.title?.toString()}></NHSNotifyHeader>
+        <NHSNotifyHeader />
         <NHSNotifyContainer>{children}</NHSNotifyContainer>
-        <NHSNotifyFooter></NHSNotifyFooter>
+        <NHSNotifyFooter />
       </body>
     </html>
   );
