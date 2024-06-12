@@ -1,8 +1,12 @@
-export async function NHSNotifyHeader({ title = '' }: { title?: string }) {
+import styles from './header.module.scss';
+import concatClassNames from '@/src/app/utils/concatClassNames';
+import content from '@/src/app/content/content';
+
+export async function NHSNotifyHeader() {
   return (
-    <header className='nhsuk-header nhsuk-header__transactional' role='banner'>
+    <header className='nhsuk-header' role='banner'>
       <div className='nhsuk-header__container'>
-        <div className='nhsuk-header__logo nhsuk-header__transactional--logo'>
+        <div className='nhsuk-header__logo'>
           <a className='nhsuk-header__link' href='/' aria-label='NHS homepage'>
             <svg
               className='nhsuk-logo'
@@ -24,13 +28,18 @@ export async function NHSNotifyHeader({ title = '' }: { title?: string }) {
             </svg>
           </a>
         </div>
-        <div className='nhsuk-header__transactional-service-name'>
-          <a
-            className='nhsuk-header__transactional-service-name--link'
-            href='/'
-          >
-            {title}
-          </a>
+        <div
+          className={concatClassNames(
+            'nhsuk-header__content',
+            styles.header__content
+          )}
+          id='content-header'
+        >
+          <div className='nhsuk-account__login'>
+            <a className='nhsuk-account__login--link' href='/'>
+              {content.components.headerComponent.links.logIn}
+            </a>
+          </div>
         </div>
       </div>
     </header>

@@ -1,1 +1,11 @@
-@import 'assets/nhsuk-8.1.1.min.css'
+@import 'assets/nhsuk-8.1.1.min.css';
+
+html {
+  font-size: 100%;
+  background-color: #fff;
+}
+
+body {
+  background: #fff;
+  overflow-x: hidden;
+}
