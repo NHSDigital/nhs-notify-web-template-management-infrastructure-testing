@@ -115,7 +115,7 @@ jobs:
     env:
       TERRAFORM_ACTION: ${{ needs.metadata.outputs.terraform_action }}
       CI_PIPELINE_IID: ${{ needs.metadata.outputs.ci_pipeline_iid }}
-      TF_VAR_branch: ${{ needs.metadata.outputs.branch_name }}
+      TF_VAR_branch_name: ${{ needs.metadata.outputs.branch_name }}
       COMPONENT: "amplify-branch"
     steps:
       - name: "Checkout code"
