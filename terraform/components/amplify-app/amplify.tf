@@ -10,6 +10,8 @@ resource "aws_amplify_app" "amplify_app" {
 
   enable_branch_auto_deletion = true
 
+  enable_branch_auto_build = false
+
   build_spec = file("./amplify.yaml")
 }
 
