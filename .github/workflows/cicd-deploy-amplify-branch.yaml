@@ -84,7 +84,7 @@ jobs:
             deploy_environment="dynamic"
           fi
           echo "deploy_environment=$deploy_environment" >> $GITHUB_OUTPUT
-          echo "branch_name=$GITHUB_REF" >> $GITHUB_OUTPUT
+          echo "branch_name=${{ github.head_ref || github.ref_name }}" >> $GITHUB_OUTPUT
       - name: "List variables"
         run: |
           export BUILD_DATETIME="${{ steps.variables.outputs.build_datetime }}"
