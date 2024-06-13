@@ -1,41 +1,70 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-export async function NHSNotifyFooter() {
+import Link from 'next/link';
+import content from '@/src/app/content/content';
+
+const footerContent = content.components.footerComponent;
+
+export function NHSNotifyFooter() {
   return (
-    <footer role='contentinfo'>
+    <footer role='contentinfo' data-testid='page-footer'>
       <div className='nhsuk-footer-container'>
         <div className='nhsuk-width-container'>
-          <h2 className='nhsuk-u-visually-hidden'>Support links</h2>
+          <h2 className='nhsuk-u-visually-hidden' data-testid='support-links'>
+            Support links
+          </h2>
           <div className='nhsuk-footer'>
             <ul className='nhsuk-footer__list'>
               <li className='nhsuk-footer__list-item nhsuk-footer-default__list-item'>
-                <a className='nhsuk-footer__list-item-link' href='#'>
-                  Accessibility statement
-                </a>
+                <Link
+                  className='nhsuk-footer__list-item-link'
+                  href='#'
+                  data-testid='accessibility-statement-link'
+                >
+                  {footerContent.links.accessibilityStatement}
+                </Link>
               </li>
               <li className='nhsuk-footer__list-item nhsuk-footer-default__list-item'>
-                <a className='nhsuk-footer__list-item-link' href='##'>
-                  Contact us
-                </a>
+                <Link
+                  className='nhsuk-footer__list-item-link'
+                  href='#'
+                  data-testid='contact-us-link'
+                >
+                  {footerContent.links.contactUs}
+                </Link>
               </li>
               <li className='nhsuk-footer__list-item nhsuk-footer-default__list-item'>
-                <a className='nhsuk-footer__list-item-link' href='#'>
-                  Cookies
-                </a>
+                <Link
+                  className='nhsuk-footer__list-item-link'
+                  href='#'
+                  data-testid='cookies-link'
+                >
+                  {footerContent.links.cookies}
+                </Link>
               </li>
               <li className='nhsuk-footer__list-item nhsuk-footer-default__list-item'>
-                <a className='nhsuk-footer__list-item-link' href='#'>
-                  Privacy policy
-                </a>
+                <Link
+                  className='nhsuk-footer__list-item-link'
+                  href='#'
+                  data-testid='privacy-policy-link'
+                >
+                  {footerContent.links.privacyPolicy}
+                </Link>
               </li>
               <li className='nhsuk-footer__list-item nhsuk-footer-default__list-item'>
-                <a className='nhsuk-footer__list-item-link' href='#'>
-                  Terms and conditions
-                </a>
+                <Link
+                  className='nhsuk-footer__list-item-link'
+                  href='#'
+                  data-testid='terms-and-conditions-link'
+                >
+                  {footerContent.links.termsAndCondition}
+                </Link>
               </li>
             </ul>
-            <div>
-              <p className='nhsuk-footer__copyright'>&copy; NHS England</p>
-            </div>
+            <p
+              className='nhsuk-footer__copyright'
+              data-testid='nhs-england-copyright-text'
+            >
+              &copy; {footerContent.nhsEngland}
+            </p>
           </div>
         </div>
       </div>
