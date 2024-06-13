@@ -104,12 +104,19 @@ jobs:
           role-to-assume: ${{ vars.AWS_DEPLOY_ROLE }}
           role-session-name: deployInfra
           aws-region: eu-west-2
-      - name: "Terraform Compliance"
+      - name: "Terraform Compliance - Amplify App"
         uses: ./.github/actions/terraform_testing
         with:
-          folder: infrastructure
-          terraform_project: notify-web-gateway
-          component: web-ui
+          folder: ""
+          terraform_project: template-mgmt
+          component: amplify-app
+          environment: dev
+      - name: "Terraform Compliance - Amplify Branch"
+        uses: ./.github/actions/terraform_testing
+        with:
+          folder: ""
+          terraform_project: template-mgmt
+          component: amplify-branch
           environment: dev
   count-lines-of-code:
     name: "Count lines of code"
