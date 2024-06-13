@@ -16,7 +16,6 @@ fi
 target_env_tfvars="./etc/group_target-env.tfvars";
 
 cat << EOF > "${target_env_tfvars}"
-  terraform_root_dir = "$(pwd)"
   pipeline_overrides = "$(jq -nrc '$ENV | with_entries(select(.key | match("OVR_")))' | tr -d '\n' | sed 's/"/\\"/g' )"
 EOF
 

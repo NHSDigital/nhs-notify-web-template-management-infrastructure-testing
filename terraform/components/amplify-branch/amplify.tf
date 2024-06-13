@@ -16,7 +16,7 @@ resource "aws_amplify_domain_association" "domain_association" {
 
   sub_domain {
     branch_name = aws_amplify_branch.amplify_branch_main.branch_name
-    prefix      = "nhs-notify"
+    prefix      = var.environment
   }
 }
 

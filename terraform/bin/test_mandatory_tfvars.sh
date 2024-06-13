@@ -25,7 +25,6 @@ declare mandatory_fields_but_global_group=(
   project
   region
   account_ids
-  terraform_root_dir
   pipeline_overrides
   superuser_role_name
   app_deployer_role_name
