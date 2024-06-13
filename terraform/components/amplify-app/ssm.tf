@@ -1,13 +1,3 @@
-resource "aws_ssm_parameter" "amplify_repository_access_token" {
-  name  = "/${var.project}/${var.component}/${var.environment}/amplify-repository-access-token"
-  type  = "SecureString"
-  value = "placeholder"
-
-  lifecycle {
-    ignore_changes = [value]
-  }
-}
-
 resource "random_string" "username" {
   length           = 8
 }
