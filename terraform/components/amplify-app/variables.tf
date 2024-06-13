@@ -31,10 +31,10 @@ variable "component" {
 }
 
 variable "repository" {
-  type        = string
-  default     = "https://github.com/NHSDigital/nhs-notify-web-template-management"
+  type    = string
+  default = "https://github.com/NHSDigital/nhs-notify-web-template-management-infrastructure-testing"
 }
 
 variable "access_token" {
-  type        = string
+  type = string
 }

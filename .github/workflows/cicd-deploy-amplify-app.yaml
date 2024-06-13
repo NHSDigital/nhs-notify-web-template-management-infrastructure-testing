@@ -1,5 +1,5 @@
-name: "CI/CD deploy"
-run-name: CI/CD Deploy ${{ inputs.deployEnvironment }} << ${{ github.ref_name }}
+name: "Deploy Amplify App"
+run-name: Deploy Amplify App ${{ inputs.deployEnvironment }} << ${{ github.ref_name }}
 
 on:
   workflow_dispatch:
@@ -14,11 +14,8 @@ on:
         required: true
         default: apply
         type: string
-      accessToken:
-        description: "Github access token for amplify app to use"
-        required: true
       tag:
-        description: "This is the tag that is oging to be deployed"
+        description: "This is the tag that is going to be deployed"
         required: true
         default: "latest"
 
@@ -116,7 +113,7 @@ jobs:
     env:
       TERRAFORM_ACTION: ${{ needs.metadata.outputs.terraform_action }}
       CI_PIPELINE_IID: ${{ needs.metadata.outputs.ci_pipeline_iid }}
-      TF_VAR_access_token: ${{ github.event.inputs.access_token }}
+      TF_VAR_access_token: ${{ secrets.AMPLIFY_GITHUB_ACCESS_TOKEN }}
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v4

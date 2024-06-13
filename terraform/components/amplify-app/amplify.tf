@@ -1,5 +1,5 @@
 resource "aws_amplify_app" "amplify_app" {
-  name                   = "${local.csi}"
+  name                   = local.csi
   repository             = var.repository
   access_token           = var.access_token
   enable_basic_auth      = true
