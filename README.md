@@ -7,10 +7,10 @@
 - Make sure you have GitHub access with the right permissions
 - Setup git locally on your machine
 - Set your local git email as you `*@nhs.net` email `e.g. git config --global user.email "firstname.lastname1@nhs.net"`
-- Setup commit signing (this is required before you can commit any code to the repo). This is a very good resource to help Mac users `https://gist.github.com/troyfontaine/18c9146295168ee9ca2b30c00bd1b41e`
-- Pull the repo here `git@github.com:NHSDigital/nhs-notify-web-template-management.git`
+- Setup commit signing (this is required before you can commit any code to the repository). This is a very good resource to help Mac users `https://gist.github.com/troyfontaine/18c9146295168ee9ca2b30c00bd1b41e`
+- Pull the repository here `git@github.com:NHSDigital/nhs-notify-web-template-management.git`
 
-### Dev and Dev tools
+### Development and Tools
 
 - Install `asdf` [HERE](https://asdf-vm.com/guide/getting-started.html#_2-download-asdf). We use this tool to manage the required version for packages (this can be found in the `.tool-versions` file at the root of the project) on the project. You can use other tools usch as `brew`, `apt`, etc, but you will be risking having different package versions to other developers.
 - Then you need to install the following plugins:
