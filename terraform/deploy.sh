@@ -29,13 +29,12 @@ cd "${basedir}" || exit 1;
 
 # construct on-the-fly .tfvars file for dynamic environments
 terraform_environment="${DEPLOY_ENVIRONMENT}";
+component_list=$COMPONENT
 
 # determine the order of components to process
 if [[ "${TERRAFORM_ACTION}" == "destroy" ]]; then
-  component_list="web-ui";
   plan_action="plan-destroy";
 else
-  component_list="web-ui";
   plan_action="plan";
 fi;
 

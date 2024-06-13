@@ -34,7 +34,7 @@ permissions:
   contents: read  # This is required for actions/checkout
 
 concurrency:
-  group: notify-web-ui-${{ github.workflow }}-${{ github.event.inputs.deployEnvironment }}
+  group: notify-template-management-${{ github.workflow }}-${{ github.event.inputs.deployEnvironment }}
   cancel-in-progress: false
 
 jobs:
@@ -116,6 +116,7 @@ jobs:
       TERRAFORM_ACTION: ${{ needs.metadata.outputs.terraform_action }}
       CI_PIPELINE_IID: ${{ needs.metadata.outputs.ci_pipeline_iid }}
       TF_VAR_branch: ${{ needs.metadata.outputs.branch_name }}
+      COMPONENT: "amplify-branch"
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v4
