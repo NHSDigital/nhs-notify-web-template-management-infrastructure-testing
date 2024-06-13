@@ -24,9 +24,10 @@ while [ $wait_seconds -le $max_wait_seconds ]; do
         exit 1
     fi
 
+    echo "Job not completed after ${wait_seconds} seconds. Status is ${job_status}. Waiting ${wait_interval} seconds and polling again"
+    
     sleep $wait_interval
     wait_seconds=$(($wait_seconds + $wait_interval))
-    echo "Job not completed after ${wait_seconds} seconds. Status is ${job_status}. Waiting ${wait_interval} seconds and polling again"
 done
 
 echo "Job took longer than 10 minutes to run"

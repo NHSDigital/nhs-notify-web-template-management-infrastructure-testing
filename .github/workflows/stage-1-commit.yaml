@@ -32,6 +32,10 @@ on:
         required: true
         type: string
 
+env:
+  AWS_REGION: eu-west-2
+  TERM: xterm-256color
+
 permissions:
   id-token: write # This is required for requesting the JWT
   contents: read  # This is required for actions/checkout
@@ -103,7 +107,7 @@ jobs:
         with:
           role-to-assume: ${{ vars.AWS_DEPLOY_ROLE }}
           role-session-name: deployInfra
-          aws-region: eu-west-2
+          aws-region: ${{ env.AWS_REGION }}
       - name: "Terraform Compliance - Amplify App"
         uses: ./.github/actions/terraform_testing
         with:
