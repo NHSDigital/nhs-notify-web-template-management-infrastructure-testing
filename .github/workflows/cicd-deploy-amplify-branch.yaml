@@ -1,5 +1,5 @@
-name: "CI/CD deploy"
-run-name: CI/CD Deploy ${{ inputs.deployEnvironment }} << ${{ github.ref_name }}
+name: "Deploy Amplify Branch"
+run-name: Deploy Amplify Branch ${{ inputs.deployEnvironment }} << ${{ github.ref_name }}
 
 on:
   workflow_dispatch:

@@ -26,13 +26,13 @@ locals {
   )
 
   base_parameter_bundle = {
-    project                             = var.project
-    environment                         = var.environment
-    component                           = var.component
-    region                              = var.region
-    account_ids                         = var.account_ids
-    account_name                        = var.account_name
-    default_tags                        = local.deployment_default_tags
+    project      = var.project
+    environment  = var.environment
+    component    = var.component
+    region       = var.region
+    account_ids  = var.account_ids
+    account_name = var.account_name
+    default_tags = local.deployment_default_tags
   }
 
   deployment_default_tags = {

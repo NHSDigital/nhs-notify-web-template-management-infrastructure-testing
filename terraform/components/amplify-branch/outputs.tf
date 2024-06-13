@@ -1,3 +1,3 @@
 output "url" {
-    value = aws_amplify_webhook.webhook.url
+  value = aws_amplify_webhook.webhook.url
 }

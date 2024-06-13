@@ -27,7 +27,7 @@ variable "environment" {
 variable "component" {
   type        = string
   description = "The name of the component"
-  default = "amplify-branch"
+  default     = "amplify-branch"
 }
 
 variable "branch_name" {
