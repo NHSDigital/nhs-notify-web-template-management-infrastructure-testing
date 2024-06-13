@@ -7,6 +7,8 @@ resource "aws_amplify_branch" "amplify_branch_main" {
   branch_name = var.branch_name
   framework   = "Next.js - SSR"
   stage       = local.is_production ? "PRODUCTION" : "DEVELOPMENT"
+
+  enable_auto_build = false
 }
 
 resource "aws_amplify_domain_association" "domain_association" {
