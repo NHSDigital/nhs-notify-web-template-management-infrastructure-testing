@@ -26,9 +26,6 @@ declare mandatory_fields_but_global_group=(
   region
   account_ids
   pipeline_overrides
-  superuser_role_name
-  app_deployer_role_name
-  cloudtrail_log_group_name
 )
 
 #looking for all fields in the respective "variables.tf" file to find the ones that don't have a defaults set, hence making them mandatory

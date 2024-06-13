@@ -1,4 +1,4 @@
-resource "aws_amplify_app" "amplify_app" {
+resource "aws_amplify_app" "app" {
   name                   = local.csi
   repository             = var.repository
   access_token           = var.access_token
@@ -19,5 +19,5 @@ resource "aws_amplify_app" "amplify_app" {
 resource "aws_ssm_parameter" "amplify_app_id" {
   name  = "/${var.project}/${var.component}/${var.environment}/amplify-app-id"
   type  = "String"
-  value = aws_amplify_app.amplify_app.id
+  value = aws_amplify_app.app.id
 }

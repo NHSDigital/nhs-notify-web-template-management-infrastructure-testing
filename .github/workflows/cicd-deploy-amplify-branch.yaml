@@ -133,6 +133,7 @@ jobs:
         run: |
           cd terraform && ./deploy.sh plan
       - name:  Terraform Apply
+        id: terraform_apply
         if: >-
           always() &&
           !cancelled()
@@ -140,3 +141,10 @@ jobs:
           cd terraform && ./deploy.sh ${TERRAFORM_ACTION}
           webhook_url=$( jq -r '.url.value' amplify-branch_output.json)
           curl -X POST $webhook_url
+          echo "app_id=$( jq -r '.app_id.value' amplify-branch_output.json)" >> $GITHUB_OUTPUT
+      - name:  Amplify Poll
+        if: >-
+          always() &&
+          !cancelled()
+        run: |
+          ./scripts/poll_running_amplify_job.sh "${{ steps.terraform_apply.outputs.app_id }}" "${{ needs.metadata.outputs.branch_name }}"

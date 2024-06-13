@@ -1,3 +1,5 @@
+#@filename_check_ignore - file contains SSM parameters
+
 resource "random_string" "username" {
   length = 8
 }

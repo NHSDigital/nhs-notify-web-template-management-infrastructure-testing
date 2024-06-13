@@ -31,5 +31,6 @@ variable "component" {
 }
 
 variable "branch_name" {
-  type = string
+  type    = string
+  default = "main"
 }
