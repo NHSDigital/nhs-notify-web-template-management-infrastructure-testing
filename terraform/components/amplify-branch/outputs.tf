@@ -1,5 +1,6 @@
 output "app_id" {
-    value = data.aws_ssm_parameter.amplify_app_id.value
+  value     = data.aws_ssm_parameter.amplify_app_id.value
+  sensitive = true
 }
 
 output "url" {
