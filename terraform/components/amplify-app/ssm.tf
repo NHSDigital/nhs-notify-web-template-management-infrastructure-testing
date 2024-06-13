@@ -15,6 +15,7 @@ resource "aws_ssm_parameter" "amplify_repository_username" {
 resource "random_string" "password" {
   length = 8
 }
+
 resource "aws_ssm_parameter" "amplify_repository_password" {
   name  = "/${var.project}/${var.component}/${var.environment}/amplify-repository-password"
   type  = "SecureString"
