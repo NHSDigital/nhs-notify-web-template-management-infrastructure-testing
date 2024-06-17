@@ -4,6 +4,8 @@ resource "aws_amplify_branch" "branch" {
   framework   = "Next.js - SSR"
   stage       = local.is_production ? "PRODUCTION" : "DEVELOPMENT"
 
+  description = "Amplify branch for ${var.branch_name}"
+
   enable_auto_build = false
 }
 
