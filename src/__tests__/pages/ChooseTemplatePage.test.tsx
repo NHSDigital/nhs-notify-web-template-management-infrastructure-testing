@@ -33,7 +33,7 @@ describe('Choose template page', () => {
             radioButton,
             new MouseEvent('click')
         );
-        
+
         // make sure the selected option is checked and the other options are not
         for (const [index2, radioButton2] of radioButtons.entries()) {
             if (index === index2) {
