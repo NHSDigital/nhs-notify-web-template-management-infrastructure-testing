@@ -1,2 +1,2 @@
-account_name = "notify-template-management"
+account_name = "notify-web-template-management"
 environment  = "DYNAMIC_ENVIRONMENT_NAME"

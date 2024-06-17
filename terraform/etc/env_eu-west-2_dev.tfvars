@@ -1,3 +1,3 @@
-account_name = "notify-template-management"
+account_name = "notify-web-template-management"
 environment  = "dev"
 

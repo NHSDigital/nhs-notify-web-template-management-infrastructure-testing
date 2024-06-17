@@ -20,7 +20,7 @@ on:
         default: "latest"
 
 env:
-  PROJECT_NAME: notify-template-management
+  PROJECT_NAME: notify-web-template-management
   DEFAULT_ENVIRONMENT: dev
   CI_PIPELINE_IID: ${{ github.run_number }}
   CI_COMMIT_REF_NAME: ${{ github.ref_name }}
@@ -34,7 +34,7 @@ permissions:
   contents: read  # This is required for actions/checkout
 
 concurrency:
-  group: notify-template-management-${{ github.workflow }}-${{ github.event.inputs.deployEnvironment }}
+  group: notify-web-template-management-${{ github.workflow }}-${{ github.event.inputs.deployEnvironment }}
   cancel-in-progress: false
 
 jobs:
