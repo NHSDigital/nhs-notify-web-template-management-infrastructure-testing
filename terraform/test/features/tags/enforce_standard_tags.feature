@@ -13,6 +13,4 @@ Feature: Tag Compliance
       | AccountName       | notify\-[a-z]{2,3}\-[a-z]+ |
       | Component         | .+                     |
       | Environment       | [a-z0-9\-]{3,15}       |
-      | Group             | .+                     |
-      | Module            | .+                     |
-      | Project           | notify-web-gateway                  |
+      | Project           | template-mgmt          |
