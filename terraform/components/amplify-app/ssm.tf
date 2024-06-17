@@ -9,6 +9,8 @@ resource "aws_ssm_parameter" "amplify_repository_username" {
   type  = "SecureString"
   value = random_string.username.result
 
+  description = "Amplify Repository username"
+
   lifecycle {
     ignore_changes = [value]
   }
@@ -22,6 +24,8 @@ resource "aws_ssm_parameter" "amplify_repository_password" {
   name  = "/${var.project}/${var.component}/${var.environment}/amplify-repository-password"
   type  = "SecureString"
   value = random_string.password.result
+
+  description = "Amplify Repository password"
 
   lifecycle {
     ignore_changes = [value]

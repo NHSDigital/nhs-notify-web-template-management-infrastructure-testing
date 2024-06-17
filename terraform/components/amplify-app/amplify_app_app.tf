@@ -5,6 +5,7 @@ resource "aws_amplify_app" "app" {
   enable_basic_auth      = true
   platform               = "WEB_COMPUTE"
   basic_auth_credentials = base64encode("${aws_ssm_parameter.amplify_repository_username.value}:${aws_ssm_parameter.amplify_repository_password.value}")
+  description            = "Template management amplify app for ${var.environment}"
 
   enable_auto_branch_creation = false
 
@@ -20,4 +21,6 @@ resource "aws_ssm_parameter" "amplify_app_id" {
   name  = "/${var.project}/${var.component}/${var.environment}/amplify-app-id"
   type  = "String"
   value = aws_amplify_app.app.id
+
+  description = "Amplify App ID"
 }
