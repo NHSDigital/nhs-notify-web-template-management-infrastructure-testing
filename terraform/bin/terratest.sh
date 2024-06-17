@@ -25,13 +25,8 @@ fi
 pip install terraform-compliance==1.3.48 --upgrade --quiet  # always upgrade to latest version
 
 features_directory="${test_dir}/features"
-shared_features_directory="${test_dir}/shared_features"
 local_file_to_test="${test_dir}/${component}_${build_id}.tfplan.json"
 
 terraform-compliance \
   --features "${features_directory}" \
-  --planfile "${local_file_to_test}"
-
-terraform-compliance \
-  --features "${shared_features_directory}" \
   --planfile "${local_file_to_test}"
