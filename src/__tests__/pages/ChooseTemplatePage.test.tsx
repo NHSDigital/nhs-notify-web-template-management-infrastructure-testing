@@ -1,15 +1,19 @@
 'use client'
+import { useFormState } from 'react-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ChooseTemplatePage from '../../app/choose-template/page';
+import { mockDeep } from 'jest-mock-extended';
 
+const mockUseFormState = mockDeep<typeof useFormState>();
 jest.mock("react-dom", () => ({
     ...jest.requireActual("react-dom"),
-    useFormState: () => [() => {}, null],
-  }));
+    useFormState: jest.fn(),
+}));
 
 
 describe('Choose template page', () => {
   it('selects one radio button at a time', () => {
+    (useFormState as jest.Mock).mockReturnValue([{}, '/action', false]);
     const container = render(<ChooseTemplatePage />);
     expect(container.asFragment()).toMatchSnapshot();
 
@@ -43,5 +47,22 @@ describe('Choose template page', () => {
             }
         }
     }
+  });
+  
+  it('renders error component', () => {
+    (useFormState as jest.Mock).mockReturnValue([{
+        formValidationError: {
+            heading: 'Form error heading',
+            error: 'Form error message'
+        },
+        componentValidationErrors: {
+            'choose-template': 'Component error message'
+        }
+    }, '/action', false]);
+    const container = render(<ChooseTemplatePage />);
+    expect(container.asFragment()).toMatchSnapshot();
+
+    expect(screen.getByTestId('error-summary')).toBeInTheDocument();
+    expect(screen.getByTestId('error-message')).toBeInTheDocument();
   });
 });

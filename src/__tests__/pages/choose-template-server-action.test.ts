@@ -1,6 +1,6 @@
 import { mockDeep } from 'jest-mock-extended';
 import { redirect } from 'next/navigation';
-import { chooseTemplateServerAction } from '../../utils/choose-template-server-action';
+import { chooseTemplateServerAction } from '../../app/choose-template/choose-template-server-action';
 
 
 jest.mock('next/navigation');
@@ -25,7 +25,13 @@ test('returns a validation error when no option is given', async () => {
     const response = chooseTemplateServerAction({}, mockFormData);
 
     expect(response).toEqual({
-        validationError: 'Please select an option'
+        formValidationError: {
+            heading: 'There is a problem',
+            error: 'Select a template type',
+        },
+        componentValidationErrors: {
+            'choose-template': 'Select a template type'
+        },
     });
 });
 
@@ -37,6 +43,12 @@ test('returns a validation error when an invalid option is given', async () => {
     const response = chooseTemplateServerAction({}, mockFormData);
 
     expect(response).toEqual({
-        validationError: 'Please select an option'
+        formValidationError: {
+            heading: 'There is a problem',
+            error: 'Select a template type',
+        },
+        componentValidationErrors: {
+            'choose-template': 'Select a template type'
+        },
     });
 });

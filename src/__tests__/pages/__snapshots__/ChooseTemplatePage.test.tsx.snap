@@ -1,100 +1,252 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Choose template page selects one radio button at a time 1`] = `
+exports[`Choose template page renders error component 1`] = `
 <DocumentFragment>
-  <h2
-    class="nhsuk-heading-l"
-    data-testid="page-sub-heading"
-  >
-    Choose a template type to create
-  </h2>
-  <form>
+  <div>
     <div
-      class="nhsuk-form-group"
+      class="nhsuk-error-summary"
     >
+      <h2
+        class="nhsuk-error-summary__title"
+      >
+        Form error heading
+      </h2>
+      <ul
+        class="nhsuk-list nhsuk-error-summary__list"
+      >
+        <a
+          data-testid="error-summary"
+          href="#choose-template"
+        >
+          Form error message
+        </a>
+      </ul>
+    </div>
+  </div>
+  <form
+    action="/action"
+  >
+    <div
+      class="nhsuk-form-group--error"
+    >
+      <h2
+        class="nhsuk-heading-l"
+      >
+        Choose a template type to create
+      </h2>
+      <span
+        class="nhsuk-error-message"
+        data-testid="error-message"
+      >
+        <span
+          class="nhsuk-u-visually-hidden"
+        >
+          Error: 
+        </span>
+        Component error message
+      </span>
       <div
-        class="nhsuk-radios"
-        id="choose-template-radios"
+        class="nhsuk-form-group"
       >
         <div
-          class="nhsuk-radios__item"
+          class="nhsuk-radios"
+          id="choose-template-id"
         >
-          <input
-            aria-labelledby="choose-template-radios-1--label"
-            class="nhsuk-radios__input"
-            data-testid="nhs-app-radio"
-            id="choose-template-radios-1"
-            name="choose-template-radios"
-            type="radio"
-            value="nhs-app"
-          />
-          <label
-            class="nhsuk-label nhsuk-radios__label"
-            for="choose-template-radios-1"
-            id="choose-template-radios-1--label"
+          <div
+            class="nhsuk-radios__item"
           >
-            NHS App message
-          </label>
+            <input
+              aria-labelledby="choose-template-id-1--label"
+              class="nhsuk-radios__input"
+              data-testid="nhs-app-radio"
+              id="choose-template-id-1"
+              name="choose-template"
+              type="radio"
+              value="nhs-app"
+            />
+            <label
+              class="nhsuk-label nhsuk-radios__label"
+              for="choose-template-id-1"
+              id="choose-template-id-1--label"
+            >
+              NHS App message
+            </label>
+          </div>
+          <div
+            class="nhsuk-radios__item"
+          >
+            <input
+              aria-labelledby="choose-template-id-2--label"
+              class="nhsuk-radios__input"
+              data-testid="email-radio"
+              id="choose-template-id-2"
+              name="choose-template"
+              type="radio"
+              value="email"
+            />
+            <label
+              class="nhsuk-label nhsuk-radios__label"
+              for="choose-template-id-2"
+              id="choose-template-id-2--label"
+            >
+              Email
+            </label>
+          </div>
+          <div
+            class="nhsuk-radios__item"
+          >
+            <input
+              aria-labelledby="choose-template-id-3--label"
+              class="nhsuk-radios__input"
+              data-testid="sms-radio"
+              id="choose-template-id-3"
+              name="choose-template"
+              type="radio"
+              value="sms"
+            />
+            <label
+              class="nhsuk-label nhsuk-radios__label"
+              for="choose-template-id-3"
+              id="choose-template-id-3--label"
+            >
+              Text message (SMS)
+            </label>
+          </div>
+          <div
+            class="nhsuk-radios__item"
+          >
+            <input
+              aria-labelledby="choose-template-id-4--label"
+              class="nhsuk-radios__input"
+              data-testid="letter-radio"
+              id="choose-template-id-4"
+              name="choose-template"
+              type="radio"
+              value="letter"
+            />
+            <label
+              class="nhsuk-label nhsuk-radios__label"
+              for="choose-template-id-4"
+              id="choose-template-id-4--label"
+            >
+              Letter
+            </label>
+          </div>
         </div>
+      </div>
+    </div>
+    <button
+      aria-disabled="false"
+      class="nhsuk-button"
+      data-testid="submit-button"
+      type="submit"
+    >
+      Continue
+    </button>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`Choose template page selects one radio button at a time 1`] = `
+<DocumentFragment>
+  <form
+    action="/action"
+  >
+    <div
+      class=""
+    >
+      <h2
+        class="nhsuk-heading-l"
+      >
+        Choose a template type to create
+      </h2>
+      <div
+        class="nhsuk-form-group"
+      >
         <div
-          class="nhsuk-radios__item"
+          class="nhsuk-radios"
+          id="choose-template-id"
         >
-          <input
-            aria-labelledby="choose-template-radios-2--label"
-            class="nhsuk-radios__input"
-            data-testid="email-radio"
-            id="choose-template-radios-2"
-            name="choose-template-radios"
-            type="radio"
-            value="email"
-          />
-          <label
-            class="nhsuk-label nhsuk-radios__label"
-            for="choose-template-radios-2"
-            id="choose-template-radios-2--label"
+          <div
+            class="nhsuk-radios__item"
           >
-            Email
-          </label>
-        </div>
-        <div
-          class="nhsuk-radios__item"
-        >
-          <input
-            aria-labelledby="choose-template-radios-3--label"
-            class="nhsuk-radios__input"
-            data-testid="sms-radio"
-            id="choose-template-radios-3"
-            name="choose-template-radios"
-            type="radio"
-            value="sms"
-          />
-          <label
-            class="nhsuk-label nhsuk-radios__label"
-            for="choose-template-radios-3"
-            id="choose-template-radios-3--label"
+            <input
+              aria-labelledby="choose-template-id-1--label"
+              class="nhsuk-radios__input"
+              data-testid="nhs-app-radio"
+              id="choose-template-id-1"
+              name="choose-template"
+              type="radio"
+              value="nhs-app"
+            />
+            <label
+              class="nhsuk-label nhsuk-radios__label"
+              for="choose-template-id-1"
+              id="choose-template-id-1--label"
+            >
+              NHS App message
+            </label>
+          </div>
+          <div
+            class="nhsuk-radios__item"
           >
-            Text message (SMS)
-          </label>
-        </div>
-        <div
-          class="nhsuk-radios__item"
-        >
-          <input
-            aria-labelledby="choose-template-radios-4--label"
-            class="nhsuk-radios__input"
-            data-testid="letter-radio"
-            id="choose-template-radios-4"
-            name="choose-template-radios"
-            type="radio"
-            value="letter"
-          />
-          <label
-            class="nhsuk-label nhsuk-radios__label"
-            for="choose-template-radios-4"
-            id="choose-template-radios-4--label"
+            <input
+              aria-labelledby="choose-template-id-2--label"
+              class="nhsuk-radios__input"
+              data-testid="email-radio"
+              id="choose-template-id-2"
+              name="choose-template"
+              type="radio"
+              value="email"
+            />
+            <label
+              class="nhsuk-label nhsuk-radios__label"
+              for="choose-template-id-2"
+              id="choose-template-id-2--label"
+            >
+              Email
+            </label>
+          </div>
+          <div
+            class="nhsuk-radios__item"
           >
-            Letter
-          </label>
+            <input
+              aria-labelledby="choose-template-id-3--label"
+              class="nhsuk-radios__input"
+              data-testid="sms-radio"
+              id="choose-template-id-3"
+              name="choose-template"
+              type="radio"
+              value="sms"
+            />
+            <label
+              class="nhsuk-label nhsuk-radios__label"
+              for="choose-template-id-3"
+              id="choose-template-id-3--label"
+            >
+              Text message (SMS)
+            </label>
+          </div>
+          <div
+            class="nhsuk-radios__item"
+          >
+            <input
+              aria-labelledby="choose-template-id-4--label"
+              class="nhsuk-radios__input"
+              data-testid="letter-radio"
+              id="choose-template-id-4"
+              name="choose-template"
+              type="radio"
+              value="letter"
+            />
+            <label
+              class="nhsuk-label nhsuk-radios__label"
+              for="choose-template-id-4"
+              id="choose-template-id-4--label"
+            >
+              Letter
+            </label>
+          </div>
         </div>
       </div>
     </div>
