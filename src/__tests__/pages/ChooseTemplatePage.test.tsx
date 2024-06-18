@@ -48,7 +48,7 @@ describe('Choose template page', () => {
         }
     }
   });
-  
+
   it('renders error component', () => {
     (useFormState as jest.Mock).mockReturnValue([{
         formValidationError: {
