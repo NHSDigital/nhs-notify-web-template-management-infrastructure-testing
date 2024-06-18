@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './header.module.scss';
+import styles from './Header.module.scss';
 import concatClassNames from '@/src/utils/concatClassNames';
 import content from '@/src/content/content';
 import { HeaderType } from './header.types';
