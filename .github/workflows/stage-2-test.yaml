@@ -56,6 +56,9 @@ jobs:
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v4
+      - name: "Repo setup"
+        run: |
+          npm install
       - name: "Run linting"
         run: |
           make test-lint
