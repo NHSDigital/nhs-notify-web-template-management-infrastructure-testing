@@ -19,7 +19,7 @@ export const chooseTemplateServerAction = (_: {}, formData: FormData): FormState
     const form = {
         'choose-template': templateType
     };
-    
+
     const parsedForm = formSchema.safeParse(form);
 
     if (!parsedForm.success) {
