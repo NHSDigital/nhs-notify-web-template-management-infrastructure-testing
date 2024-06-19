@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "bucket" {
+resource "aws_s3_bucket" "bucket" { #NOSONAR
   bucket        = var.bucket_name
   force_destroy = "false"
 

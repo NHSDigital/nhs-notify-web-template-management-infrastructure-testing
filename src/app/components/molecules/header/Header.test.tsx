@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { NHSNotifyHeader } from './Header';
+import { NHSNotifyHeader } from './header';
 
 describe('Header component', () => {
   it('renders component correctly', () => {
