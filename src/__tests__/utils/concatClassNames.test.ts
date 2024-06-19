@@ -1,6 +1,6 @@
 import concatClassNames from '@/src/utils/concatClassNames';
 
-describe('Header component', () => {
+describe('concatClassNames function', () => {
   it('calls the concatClassName function with string classes parameters separated by comma', () => {
     expect(concatClassNames('class1', 'class2')).toBe('class1 class2');
   });
