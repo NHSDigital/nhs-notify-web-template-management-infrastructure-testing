@@ -25,13 +25,10 @@ test('returns a validation error when no option is given', async () => {
     const response = chooseTemplateServerAction({}, mockFormData);
 
     expect(response).toEqual({
-        formValidationError: {
-            heading: 'There is a problem',
-            error: 'Select a template type',
+        fieldErrors: {
+            'choose-template': ['Select a template type']
         },
-        componentValidationErrors: {
-            'choose-template': 'Select a template type'
-        },
+        formErrors: [],
     });
 });
 
@@ -43,12 +40,9 @@ test('returns a validation error when an invalid option is given', async () => {
     const response = chooseTemplateServerAction({}, mockFormData);
 
     expect(response).toEqual({
-        formValidationError: {
-            heading: 'There is a problem',
-            error: 'Select a template type',
+        fieldErrors: {
+            'choose-template': ['Select a template type']
         },
-        componentValidationErrors: {
-            'choose-template': 'Select a template type'
-        },
+        formErrors: [],
     });
 });

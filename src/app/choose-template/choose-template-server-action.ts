@@ -1,29 +1,29 @@
 'use server';
 import { redirect } from 'next/navigation';
+import { z } from 'zod';
 
 export type FormState = {
-    formValidationError?: {
-        heading: string;
-        error: string;
-    };
-    componentValidationErrors?: Record<string, string>; // key is component identifier, value is error message
+    formErrors: string[];
+    fieldErrors: Record<string, string[]>;
 };
 
-const validTemplateTypes: FormDataEntryValue[] = ['sms', 'email', 'nhs-app', 'letter'];
+const formSchema = z.object({
+    'choose-template': z.enum(
+        ['sms', 'email', 'nhs-app', 'letter'],
+        { message: 'Select a template type' },
+    )
+});
 
 export const chooseTemplateServerAction = (_: {}, formData: FormData): FormState => {
     const templateType = formData.get('choose-template');
+    const form = {
+        'choose-template': templateType
+    };
+    
+    const parsedForm = formSchema.safeParse(form);
 
-    if (!templateType || !validTemplateTypes.includes(templateType)) {
-        return {
-            formValidationError: {
-                heading: 'There is a problem',
-                error: 'Select a template type',
-            },
-            componentValidationErrors: {
-                'choose-template': 'Select a template type'
-            },
-        }
+    if (!parsedForm.success) {
+        return parsedForm.error.flatten();
     }
     redirect(`/create-template/${templateType}`);
 }

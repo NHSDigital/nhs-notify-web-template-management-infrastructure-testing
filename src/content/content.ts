@@ -63,4 +63,15 @@ const content = {
   },
 };
 
+export const chooseTemplatePageContent = {
+  pageHeading: 'Choose a template type to create',
+  errorHeading: 'There is a problem',
+  options: [
+    { id: 'nhs-app', text: 'NHS App message' },
+    { id: 'email', text: 'Email' },
+    { id: 'sms', text: 'Text message (SMS)' },
+    { id: 'letter', text: 'Letter' },
+  ],
+};
+
 export default content;

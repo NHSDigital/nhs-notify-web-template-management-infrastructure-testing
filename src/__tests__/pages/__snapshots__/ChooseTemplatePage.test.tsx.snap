@@ -8,18 +8,20 @@ exports[`Choose template page renders error component 1`] = `
     >
       <h2
         class="nhsuk-error-summary__title"
+        data-testid="error-summary"
       >
-        Form error heading
+        There is a problem
       </h2>
       <ul
         class="nhsuk-list nhsuk-error-summary__list"
       >
-        <a
-          data-testid="error-summary"
-          href="#choose-template"
-        >
-          Form error message
-        </a>
+        <li>
+          <a
+            href="#choose-template"
+          >
+            Component error message
+          </a>
+        </li>
       </ul>
     </div>
   </div>
