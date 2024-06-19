@@ -1,11 +1,7 @@
 'use server';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
-
-export type FormState = {
-    formErrors: string[];
-    fieldErrors: Record<string, string[]>;
-};
+import { FormState } from '../../utils/types';
 
 const formSchema = z.object({
     'choose-template': z.enum(

@@ -4,7 +4,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import ChooseTemplatePage from '../../app/choose-template/page';
 import { mockDeep } from 'jest-mock-extended';
 
-const mockUseFormState = mockDeep<typeof useFormState>();
 jest.mock("react-dom", () => ({
     ...jest.requireActual("react-dom"),
     useFormState: jest.fn(),
@@ -63,6 +62,6 @@ describe('Choose template page', () => {
     expect(container.asFragment()).toMatchSnapshot();
 
     expect(screen.getByTestId('error-summary')).toBeInTheDocument();
-    expect(screen.getByTestId('error-message')).toBeInTheDocument();
+    expect(document.getElementById('choose-template-error-message')).toBeInTheDocument();
   });
 });

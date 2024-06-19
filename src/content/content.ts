@@ -72,6 +72,7 @@ export const chooseTemplatePageContent = {
     { id: 'sms', text: 'Text message (SMS)' },
     { id: 'letter', text: 'Letter' },
   ],
+  buttonText: 'Continue',
 };
 
 export default content;
