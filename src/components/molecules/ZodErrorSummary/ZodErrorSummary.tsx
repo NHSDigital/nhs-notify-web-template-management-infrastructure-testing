@@ -15,7 +15,7 @@ export const ZodErrorSummary = ({
     if (!hasError) {
         return <></>;
     }
-    
+
     return (
         <ErrorSummary>
             <ErrorSummary.Title data-testid='error-summary'>

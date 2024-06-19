@@ -12,7 +12,7 @@ export default function ChooseTemplatePage() {
     const [state, action] = useFormState<FormState, FormData>(chooseTemplateServerAction, { formErrors: [], fieldErrors: {}});
     return (
         <>
-            <ZodErrorSummary 
+            <ZodErrorSummary
                 errorHeading={errorHeading}
                 state={state}
             />
