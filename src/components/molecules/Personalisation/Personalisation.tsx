@@ -5,11 +5,7 @@ import { Details } from 'nhsuk-react-components';
 
 const personalisationContent = content.components.personalisationComponent;
 
-export type PersonalisationType = {
-  isOpen?: boolean;
-};
-
-export function Personalisation({ isOpen }: PersonalisationType) {
+export function Personalisation() {
   return (
     <>
       <h2
