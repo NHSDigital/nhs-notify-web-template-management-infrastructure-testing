@@ -1,5 +1,8 @@
+'use client';
+
 import { NHSNotifyButton } from '@/src/components/atoms/NHSNotifyButton/NHSNotifyButton';
 import content from '@/src/content/content';
+import { Personalisation } from '../components/molecules/Personalisation/Personalisation';
 
 const homePageContent = content.pages.homePage;
 
@@ -32,6 +35,9 @@ export default function HomePage() {
         <NHSNotifyButton href={homePageContent.linkButton.url}>
           {homePageContent.linkButton.text}
         </NHSNotifyButton>
+      </div>
+      <div className='nhsuk-grid-column-one-third'>
+        <Personalisation />
       </div>
     </div>
   );

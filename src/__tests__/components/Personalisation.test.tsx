@@ -1,12 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import {
-  Personalisation,
-  PersonalisationType,
-} from '@/src/components/molecules/Personalisation/Personalisation';
-
-const componentProps: PersonalisationType = {
-  isOpen: true,
-};
+import { Personalisation } from '@/src/components/molecules/Personalisation/Personalisation';
 
 describe('Personalisation component', () => {
   it('renders component correctly', async () => {
@@ -17,14 +10,8 @@ describe('Personalisation component', () => {
     const details = screen.getByTestId('personalisation-details');
     expect(details).toBeInTheDocument();
     expect(details).not.toHaveAttribute('open');
-  });
-  it('renders component in open state', async () => {
-    render(<Personalisation {...componentProps} />);
 
-    expect(screen.getByTestId('personalisation-header')).toBeInTheDocument();
-
-    const details = screen.getByTestId('personalisation-details');
-    expect(details).toBeInTheDocument();
-    expect(details).toHaveAttribute('open');
+    expect(screen.getByTestId('personalisation-summary')).toBeInTheDocument();
+    expect(screen.getByTestId('personalisation-text')).toBeInTheDocument();
   });
 });

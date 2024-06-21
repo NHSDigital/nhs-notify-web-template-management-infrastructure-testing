@@ -33,7 +33,6 @@ const personalisationComponent = {
       { id: 'pds-item-3', item: '((middleNames))' },
       { id: 'pds-item-4', item: '((lastName))' },
       { id: 'pds-item-5', item: '((nhsNumber))' },
-      { id: 'pds-item-6', item: '((birthDate))' },
       { id: 'pds-item-7', item: '((namePrefix))' },
       { id: 'pds-item-8', item: '((nameSuffix))' },
       { id: 'pds-item-9', item: '((address_line_1))' },
