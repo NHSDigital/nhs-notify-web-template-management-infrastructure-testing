@@ -26,9 +26,7 @@ export function Personalisation() {
           <p className='nhsuk-u-margin-top-4'>
             {personalisationContent.details.text2}
           </p>
-          <p className='nhsuk-u-margin-top-4'>
-            {personalisationContent.details.text3}
-          </p>
+          <p>{personalisationContent.details.text3}</p>
           <ul>
             {personalisationContent.details.list.map(({ id, item }) => (
               <li key={id}>{item}</li>
