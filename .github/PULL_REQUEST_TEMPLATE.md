@@ -24,7 +24,6 @@
 - [ ] I have followed the code style of the project
 - [ ] I have added tests to cover my changes
 - [ ] I have updated the documentation accordingly
-- [ ] I have demoed UI changes to the UCD team
 - [ ] This PR is a result of pair or mob programming
 
 ---
