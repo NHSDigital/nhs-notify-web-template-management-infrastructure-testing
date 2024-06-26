@@ -54,6 +54,7 @@ jobs:
       aws_region: ${{ steps.variables.outputs.aws_region }}
       terraform_action: ${{ steps.variables.outputs.terraform_action }}
       ci_pipeline_iid: ${{ steps.variables.outputs.ci_pipeline_iid }}
+      amplify_app_environment: ${{ steps.variables.outputs.amplify_app_environment }}
       deploy_environment: ${{ steps.variables.outputs.deploy_environment }}
       branch_name: ${{ steps.variables.outputs.branch_name }}
     steps:
@@ -84,7 +85,8 @@ jobs:
             amplify_app_environment="dynamic"
           fi
           echo "amplify_app_environment=$amplify_app_environment" >> $GITHUB_OUTPUT
-          echo "branch_name=${{ github.head_ref || github.ref_name }}" >> $GITHUB_OUTPUT
+          branch_name=${{ github.head_ref || github.ref_name }}
+          echo "branch_name=$branch_name" >> $GITHUB_OUTPUT
           echo "deploy_environment=$( echo "de-${amplify_app_environment}-${branch_name//\//-}" )" >> $GITHUB_OUTPUT
       - name: "List variables"
         run: |
