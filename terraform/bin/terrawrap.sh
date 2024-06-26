@@ -17,10 +17,10 @@ component="$(echo ${*:-} | grep -Eo  "\-\-component ([a-z]*)" | awk '{print $2}'
 action="$(echo ${*:-} | grep -Eo  "\-\-action ([a-z]*)" | awk '{print $2}')";
 
 # Create env file for dynamic env, after deleting an existing one if it does exist(happens locally)
-if [[ "${environment}" =~ ^de-[a-zA-Z0-9_]{3,6}$ && -f "./etc/env_eu-west-2_${environment}.tfvars" ]]; then
+if [[ "${environment}" =~ ^de-.*$ && -f "./etc/env_eu-west-2_${environment}.tfvars" ]]; then
   rm "./etc/env_eu-west-2_${environment}.tfvars"
 fi
-if [[ "${environment}" =~ ^de-[a-zA-Z0-9_]{3,6}$ && ! -f "./etc/env_eu-west-2_${environment}.tfvars" ]]; then
+if [[ "${environment}" =~ ^de-.*$ && ! -f "./etc/env_eu-west-2_${environment}.tfvars" ]]; then
   echo "Creating dynamic environment ${environment}...";
   sed -e "s/DYNAMIC_ENVIRONMENT_NAME/${environment}/g" \
     "./etc/env_eu-west-2_dynamic_environments.tfvars" \

@@ -1,11 +1,11 @@
 name: "Deploy Amplify Branch"
-run-name: Deploy Amplify Branch ${{ inputs.deployEnvironment }} << ${{ github.ref_name }}
+run-name: Deploy Amplify Branch ${{ inputs.amplifyAppEnvironment }} << ${{ github.ref_name }}
 
 on:
   workflow_dispatch:
     inputs:
-      deployEnvironment:
-        description: Name of the environment to deploy
+      amplifyAppEnvironment:
+        description: Name of the environment to deploy to
         required: true
         default: dev
         type: string
@@ -26,7 +26,7 @@ env:
   CI_COMMIT_REF_NAME: ${{ github.ref_name }}
   CI_COMMIT_BRANCH: ${{ github.ref_name }}
   AWS_REGION: eu-west-2
-  DEPLOY_ENVIRONMENT: ${{ inputs.deployEnvironment }}
+  DEPLOY_ENVIRONMENT: de-${{ github.head_ref || github.ref_name }}
   TERRAFORM_ACTION: ${{ inputs.terraformAction }}
 
 permissions:
@@ -34,7 +34,7 @@ permissions:
   contents: read  # This is required for actions/checkout
 
 concurrency:
-  group: notify-web-template-management-${{ github.workflow }}-${{ github.event.inputs.deployEnvironment }}
+  group: notify-web-template-management-${{ github.workflow }}-${{ github.event.inputs.amplifyAppEnvironment }}
   cancel-in-progress: false
 
 jobs:
@@ -79,7 +79,7 @@ jobs:
           echo "ci_commit_branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
           echo "aws_region=eu-west-2"  >> $GITHUB_OUTPUT
           echo "terraform_action=${{ inputs.terraformAction }}" >> $GITHUB_OUTPUT
-          deploy_environment=${{ inputs.deployEnvironment }}
+          deploy_environment=${{ inputs.amplifyAppEnvironment }}
           if [[ $deploy_environment == de-*  ]]; then
             deploy_environment="dynamic"
           fi
@@ -105,7 +105,6 @@ jobs:
           export DEPLOY_ENVIRONMENT="${{ steps.variables.outputs.deploy_environment }}"
           export TERRAFORM_ACTION="${{ steps.variables.outputs.terraform_action }}"
           make list-variables
-          export TF_VAR_branch="${{ secrets.AMPLIFY_GITHUB_ACCESS_TOKEN }}"
   deploy:
     name: "Deploy to an environment"
     environment: ${{ needs.metadata.outputs.deploy_environment }}
@@ -116,6 +115,7 @@ jobs:
       TERRAFORM_ACTION: ${{ needs.metadata.outputs.terraform_action }}
       CI_PIPELINE_IID: ${{ needs.metadata.outputs.ci_pipeline_iid }}
       TF_VAR_branch_name: ${{ needs.metadata.outputs.branch_name }}
+      TF_VAR_amplify_app_environment: ${{ inputs.amplifyAppEnvironment }}
       COMPONENT: "amplify-branch"
     steps:
       - name: "Checkout code"
