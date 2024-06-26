@@ -12,7 +12,7 @@ function get_colour() {
 }
 
 bin_dir="$(dirname "${BASH_SOURCE[0]}")";
-environment="$(echo ${*:-} | grep -Eo  "\-\-environment ([_a-zA-Z0-9-]*)" | awk '{print $2}')";
+environment="$(echo ${*:-} | grep -Eo  "\-\-environment ([a-zA-Z0-9-]*)" | awk '{print $2}')";
 component="$(echo ${*:-} | grep -Eo  "\-\-component ([a-z]*)" | awk '{print $2}')";
 action="$(echo ${*:-} | grep -Eo  "\-\-action ([a-z]*)" | awk '{print $2}')";
 
