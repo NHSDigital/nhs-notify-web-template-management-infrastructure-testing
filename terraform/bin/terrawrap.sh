@@ -16,9 +16,26 @@ environment="$(echo ${*:-} | grep -Eo  "\-\-environment ([a-z0-9-]*)" | awk '{pr
 component="$(echo ${*:-} | grep -Eo  "\-\-component ([a-z]*)" | awk '{print $2}')";
 action="$(echo ${*:-} | grep -Eo  "\-\-action ([a-z]*)" | awk '{print $2}')";
 
+echo "DEBUG"
+echo ${environment}
+if [[ "${environment}" =~ ^de- ]]; then
+  echo "regex match"
+fi
+if [[ ! "${environment}" =~ ^de- ]]; then
+  echo "regex not match"
+fi
+
 # Create env file for dynamic env, after deleting an existing one if it does exist(happens locally)
 if [[ "${environment}" =~ ^de- && -f "./etc/env_eu-west-2_${environment}.tfvars" ]]; then
+  echo "file remove"
   rm "./etc/env_eu-west-2_${environment}.tfvars"
+fi
+echo ${environment}
+if [[ -f "./etc/env_eu-west-2_${environment}.tfvars" ]]; then
+  echo "file present"
+fi
+if [[ ! -f "./etc/env_eu-west-2_${environment}.tfvars" ]]; then
+  echo "file not present"
 fi
 if [[ "${environment}" =~ ^de- && ! -f "./etc/env_eu-west-2_${environment}.tfvars" ]]; then
   echo "Creating dynamic environment ${environment}...";
