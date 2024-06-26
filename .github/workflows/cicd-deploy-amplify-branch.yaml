@@ -80,12 +80,12 @@ jobs:
           echo "aws_region=eu-west-2"  >> $GITHUB_OUTPUT
           echo "terraform_action=${{ inputs.terraformAction }}" >> $GITHUB_OUTPUT
           amplify_app_environment=${{ inputs.amplifyAppEnvironment }}
-          if [[ $deploy_environment == de-*  ]]; then
+          if [[ $amplify_app_environment == de-*  ]]; then
             amplify_app_environment="dynamic"
           fi
           echo "amplify_app_environment=$amplify_app_environment" >> $GITHUB_OUTPUT
           echo "branch_name=${{ github.head_ref || github.ref_name }}" >> $GITHUB_OUTPUT
-          echo "deploy_environment=$( echo "branch-${amplify_app_environment}-${branch_name//\//-}" )" >> $GITHUB_OUTPUT
+          echo "deploy_environment=$( echo "de-${amplify_app_environment}-${branch_name//\//-}" )" >> $GITHUB_OUTPUT
       - name: "List variables"
         run: |
           export BUILD_DATETIME="${{ steps.variables.outputs.build_datetime }}"
@@ -115,6 +115,7 @@ jobs:
     env:
       TERRAFORM_ACTION: ${{ needs.metadata.outputs.terraform_action }}
       CI_PIPELINE_IID: ${{ needs.metadata.outputs.ci_pipeline_iid }}
+      DEPLOY_ENVIRONMENT: ${{ needs.metadata.outputs.deploy_environment }}
       TF_VAR_branch_name: ${{ needs.metadata.outputs.branch_name }}
       TF_VAR_amplify_app_environment: ${{ inputs.amplifyAppEnvironment }}
       COMPONENT: "amplify-branch"
